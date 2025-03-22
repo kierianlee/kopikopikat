@@ -1,0 +1,117 @@
+---
+import DefaultLayout from "../layouts/default/default-layout.astro";
+
+// Gallery images data
+const galleryImages = [
+  {
+    title: "Coffee Art",
+    description: "Beautiful latte art in our signature coffee",
+    image:
+      "https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "full", // can be "full" or "half"
+  },
+  {
+    title: "Coffee Shop",
+    description: "Our cozy coffee shop environment",
+    image:
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "half",
+  },
+  {
+    title: "Coffee Time",
+    description: "Enjoying a moment with our signature brew",
+    image:
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "half",
+  },
+  {
+    title: "Coffee with Friends",
+    description: "Sharing great moments over coffee",
+    image:
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "full",
+  },
+  {
+    title: "Coffee Preparation",
+    description: "Crafting the perfect cup",
+    image:
+      "https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "half",
+  },
+  {
+    title: "Malaysian Coffee Culture",
+    description: "Celebrating our coffee heritage",
+    image:
+      "https://images.unsplash.com/photo-1534040385115-33dcb3acba5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "half",
+  },
+  {
+    title: "Coffee Varieties",
+    description: "Exploring different coffee blends",
+    image:
+      "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    width: "half",
+  },
+];
+---
+
+<DefaultLayout>
+  <section class="py-16 bg-[#f8f5f2]">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="mb-12 text-center">
+        <h1
+          class="text-4xl md:text-6xl font-bold text-[#402818] font-gochi-hand mb-4"
+        >
+          Our Gallery
+        </h1>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          Step into the world of KopiKopiKat through our visual journey -
+          capturing moments, flavors, and the essence of our Malaysian-inspired
+          coffee experience.
+        </p>
+      </div>
+
+      <!-- Staggered Gallery Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          galleryImages.map((image, index) => (
+            <div
+              class={`relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all ${
+                image.width === "full" ? "md:col-span-2" : ""
+              }`}
+            >
+              <div class="relative group h-full">
+                <img
+                  src={image.image}
+                  alt={image.title}
+                  class="w-full h-full object-cover aspect-[4/3]"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                  <h3 class="text-xl font-semibold text-white mb-2">
+                    {image.title}
+                  </h3>
+                  <p class="text-gray-200 text-sm">{image.description}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-16 text-center">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-[#402818] mb-6 font-gochi-hand"
+        >
+          Want to experience our coffee in person?
+        </h2>
+        <a
+          href="/contact-us"
+          class="inline-block bg-[#8b6747] border-2 text-white hover:bg-[#402818] px-8 py-3 rounded-full font-medium transition-colors uppercase"
+        >
+          Visit Us
+        </a>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

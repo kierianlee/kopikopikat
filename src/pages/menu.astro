@@ -1,0 +1,81 @@
+---
+import DefaultLayout from "../layouts/default/default-layout.astro";
+
+// Define menu items data
+const menuItems = [
+  {
+    title: "Sirap Bandung",
+    description:
+      "Our signature pulled coffee with condensed milk, creating a rich, creamy texture.",
+    image: "/products/bandung-illustration.png",
+  },
+  {
+    title: "Iced Latte",
+    description:
+      "A unique fusion of espresso and pandan flavor, topped with velvety milk foam.",
+    image: "/products/latte-illustration.png",
+  },
+  {
+    title: "Iced Lemon Tea",
+    description:
+      "A modern take on Malaysian classic, blending tea and espresso with stretched milk.",
+    image: "/products/iced-lemon-tea-illustration.png",
+  },
+];
+---
+
+<DefaultLayout>
+  <section class="py-16 bg-[#f8f5f2]">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="mb-12 text-center">
+        <h1
+          class="text-4xl md:text-6xl font-bold text-[#402818] font-gochi-hand mb-4"
+        >
+          Our Menu
+        </h1>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          Explore our unique selection of Malaysian-inspired coffee and treats.
+          Each item is crafted with care and passion.
+        </p>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          menuItems.map((item) => (
+            <div class="bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-xl">
+              <div class="h-64 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  class="w-full h-full object-cover transition-all hover:scale-105"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-[#402818] mb-2">
+                  {item.title}
+                </h3>
+                <p class="text-gray-600 mb-4">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-16 text-center">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-[#402818] mb-6 font-gochi-hand"
+        >
+          Ready to taste our Malaysian-inspired coffee?
+        </h2>
+        <a
+          href="/contact-us"
+          class="inline-block bg-[#8b6747] border-2 text-white hover:bg-[#402818] px-8 py-3 rounded-full font-medium transition-colors uppercase"
+        >
+          Order Now
+        </a>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

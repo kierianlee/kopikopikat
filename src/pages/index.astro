@@ -1,11 +1,233 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import DefaultLayout from "../layouts/default/default-layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<DefaultLayout>
+  <!-- Hero Section -->
+  <section class="h-full lg:h-[550px] bg-[#efefef] relative overflow-hidden">
+    <div
+      class="container mx-auto px-4 md:px-8 h-full max-h-[550px] relative z-10"
+    >
+      <div class="flex flex-col md:flex-row items-center h-full">
+        <!-- Left section -->
+        <div class="w-full md:w-1/2 h-full flex items-center justify-center">
+          <div class="space-y-6 py-8 max-w-md mx-auto text-center md:text-left">
+            <img
+              src="/logo.svg"
+              alt="KopiKopiKat"
+              class="w-48 md:w-72 mx-auto md:mx-0"
+            />
+            <p
+              class="text-2xl lg:text-3xl xl:text-4xl max-w-lg font-gochi-hand uppercase"
+            >
+              Inspired by tradition, perfected for today.
+            </p>
+            <div
+              class="pt-4 flex flex-wrap gap-4 justify-center md:justify-start"
+            >
+              <a
+                href="/contact-us"
+                class="bg-[#8b6747] border-2 text-white hover:bg-[#402818] px-8 py-3 rounded-full font-medium transition-colors uppercase"
+              >
+                Order Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right section - positioned absolutely to take full width/height -->
+    <div
+      class="absolute top-0 right-[10%] bottom-0 w-1/2 hidden md:block h-full"
+    >
+      <div class="h-full w-full">
+        <img
+          src="/hero.png"
+          alt="Coffee cup"
+          class="h-full w-full object-contain"
+        />
+      </div>
+    </div>
+
+    <!-- Mobile image (shown only on small screens) -->
+    <div class="md:hidden w-full mt-4 px-4 pb-8">
+      <div class="relative w-full max-w-lg mx-auto aspect-square max-h-[300px]">
+        <img
+          src="/hero.png"
+          alt="Coffee cup"
+          class="relative z-10 rounded-2xl object-contain w-full h-full"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="flex flex-col md:flex-row h-full md:h-[750px]">
+    <!-- Left image (full width/height) -->
+    <div class="w-full md:w-1/2 h-full order-2 md:order-1">
+      <img
+        src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80"
+        alt="Coffee cup with latte art"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <!-- Right content -->
+    <div
+      class="w-full md:w-1/2 h-full bg-[#d1cccf] flex items-center justify-center relative order-1 md:order-2 py-12 md:py-0"
+    >
+      <!-- Logo at top right - hidden on mobile -->
+      <div class="absolute top-8 right-8 hidden md:block">
+        <img src="/logo.svg" alt="KopiKopiKat" class="w-32" />
+      </div>
+
+      <!-- Centered content -->
+      <div class="max-w-md text-center px-6">
+        <h2
+          class="text-4xl md:text-6xl font-bold text-[#402818] mb-8 font-gochi-hand"
+        >
+          About Us
+        </h2>
+        <div class="space-y-4 text-lg">
+          <p>
+            We are a proudly <span class="font-semibold text-[#8b6747]"
+              >Malaysian</span
+            > brand offering locally <span class="font-semibold text-[#8b6747]"
+              >inspired latte coffee</span
+            > with a fresh twist.
+          </p>
+          <p>
+            Our goal is to bring a <span class="font-semibold text-[#8b6747]"
+              >unique coffee experience</span
+            > that blends tradition with <span
+              class="font-semibold text-[#8b6747]">innovation</span
+            >, setting new trends in the market.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a
+            href="/about-us"
+            class="inline-block bg-[#402818] text-white px-8 py-3 rounded-full uppercase font-medium hover:bg-[#8b6747] transition-colors"
+          >
+            Learn More
+          </a>
+        </div>
+        <div class="mt-12 flex justify-center">
+          <img src="/cat.svg" alt="Cat" class="h-26" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="py-20 bg-[#f8f5f2] relative overflow-hidden">
+    <div class="mb-16 flex flex-col gap-4">
+      <h2
+        class="text-4xl md:text-6xl font-bold text-[#402818] text-center font-gochi-hand"
+      >
+        Our Story
+      </h2>
+      <p class="text-center text-gray-700 font-gochi-hand text-xl">
+        The Story of Kopi Kopikat: A True Malaysian Coffee Brand
+      </p>
+    </div>
+
+    <div class="px-4 container mx-auto">
+      <div class="relative max-w-4xl mx-auto">
+        <!-- Vertical line -->
+        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-[#333333] h-full">
+        </div>
+        <!-- Yellow dashed line -->
+        <div
+          class="absolute left-4 top-0 bottom-0 w-px bg-[#FFD700] h-full"
+          style="background: repeating-linear-gradient(to bottom, #FFD700, #FFD700 10px, transparent 10px, transparent 20px);"
+        >
+        </div>
+
+        <!-- Timeline items -->
+        <div class="space-y-12">
+          <!-- Milestone 1 -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-0 bg-[#402818] text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold border-2 border-white shadow-md"
+            >
+              1
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <h3 class="text-lg font-bold text-[#402818] mb-2">
+                August 2024 – A Late-Night Idea
+              </h3>
+              <p class="text-gray-700">
+                During a teh tarik session, three friends—Kierian, Adam, and
+                Farhan—discussed the struggles of gig workers. Determined to
+                create opportunities, they brainstormed ideas late into the
+                night.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-0 bg-[#402818] text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold border-2 border-white shadow-md"
+            >
+              2
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <h3 class="text-lg font-bold text-[#402818] mb-2">
+                The Birth of a Malaysian Coffee Brand
+              </h3>
+              <p class="text-gray-700">
+                Inspired by Malaysia's rich coffee culture, they envisioned Kopi
+                Kopikat—a locally inspired latte coffee brand with a fresh
+                twist, blending tradition with innovation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-0 bg-[#402818] text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold border-2 border-white shadow-md"
+            >
+              3
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <h3 class="text-lg font-bold text-[#402818] mb-2">
+                More Than Just a Name
+              </h3>
+              <p class="text-gray-700">
+                "Kopi Kopi" means coffee, while "Cat" symbolizes good luck and
+                originality. Though it may sound like "copycat," the brand
+                stands for creativity and bold new ideas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="relative pl-12">
+            <div
+              class="absolute left-0 bg-[#402818] text-white w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold border-2 border-white shadow-md"
+            >
+              4
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+              <h3 class="text-lg font-bold text-[#402818] mb-2">
+                Brewing the Future
+              </h3>
+              <p class="text-gray-700">
+                Kopi Kopikat is redefining Malaysian coffee culture, crafting
+                unique flavors and experiences. More than just coffee, it's
+                about community, innovation, and a shared love for great coffee.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

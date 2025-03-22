@@ -1,0 +1,94 @@
+---
+const menuItems = [
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "Menu",
+    href: "/menu",
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
+  },
+  {
+    label: "Contact Us",
+    href: "/contact-us",
+  },
+];
+---
+
+<nav class="bg-[#402818] w-full h-16 flex items-center justify-center">
+  <div class="flex items-center justify-between w-full h-full px-4 md:px-8">
+    <a href="/"
+      ><img src="/logo-dark.svg" alt="KopiKopiKat" class="w-16 md:w-20" /></a
+    >
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-button" class="md:hidden text-white">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex items-center space-x-4 lg:space-x-8">
+      {
+        menuItems.map((item) => (
+          <li class="text-white hover:text-amber-300 transition-colors font-medium text-sm">
+            <a
+              href={`${item.href}`}
+              class="text-white hover:text-amber-300 transition-colors font-medium uppercase"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Mobile menu (hidden by default) -->
+  <div
+    id="mobile-menu"
+    class="hidden bg-[#402818] w-full absolute top-16 left-0 z-50 shadow-lg"
+  >
+    <ul class="flex flex-col items-center py-4 space-y-4">
+      {
+        menuItems.map((item) => (
+          <li class="text-white hover:text-amber-300 transition-colors font-medium text-sm w-full text-center">
+            <a
+              href={`${item.href}`}
+              class="text-white hover:text-amber-300 transition-colors font-medium block py-2 uppercase"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Toggle mobile menu
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+</script>
