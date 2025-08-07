@@ -1,25 +1,12 @@
 ---
 import DefaultLayout from "../layouts/default/default-layout.astro";
 
-// Define menu items data
 const menuItems = [
-  {
-    title: "Sirap Bandung",
-    description:
-      "Our signature pulled coffee with condensed milk, creating a rich, creamy texture.",
-    image: "/products/bandung-illustration.png",
-  },
   {
     title: "Iced Latte",
     description:
       "A unique fusion of espresso and pandan flavor, topped with velvety milk foam.",
-    image: "/products/latte-illustration.png",
-  },
-  {
-    title: "Iced Lemon Tea",
-    description:
-      "A modern take on Malaysian classic, blending tea and espresso with stretched milk.",
-    image: "/products/iced-lemon-tea-illustration.png",
+    image: "/products/latte-can.png",
   },
 ];
 ---
@@ -48,7 +35,7 @@ const menuItems = [
                 <img
                   src={item.image}
                   alt={item.title}
-                  class="w-full h-full object-cover transition-all hover:scale-105"
+                  class="w-full h-full object-contain transition-all hover:scale-105"
                 />
               </div>
               <div class="p-6">
